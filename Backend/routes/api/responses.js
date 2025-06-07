@@ -29,7 +29,9 @@ router.post(
 		const { formId, response } = req.body;
 
 		try {
-			const userExists = await User.findOne({ _id: userId });
+			const userExists = await User.findOne({ _id: userId }).select(
+				'_id'
+			);
 
 			if (!userExists) {
 				return res
@@ -37,7 +39,9 @@ router.post(
 					.json({ errors: [{ msg: 'User does not exist' }] });
 			}
 
-			const formExists = await Form.findOne({ _id: formId });
+			const formExists = await Form.findOne({ _id: formId }).select(
+				'_id public'
+			);
 
 			if (!formExists) {
 				return res
@@ -56,6 +60,7 @@ router.post(
 			});
 
 			await newResponse.save();
+
 			res.status(200).json({
 				msg: 'Response submitted successfully',
 			});
@@ -69,11 +74,11 @@ router.post(
 // route to handle fetch My Submissions requests
 // GET /api/responses
 // access private
-router.get('/', [jwtTokenDecoder], async (req, res) => {
+router.get('/my-submissions', [jwtTokenDecoder], async (req, res) => {
 	const userId = req.user.id;
 
 	try {
-		const userExists = await User.findOne({ _id: userId });
+		const userExists = await User.findOne({ _id: userId }).select('_id');
 
 		if (!userExists) {
 			return res
@@ -83,7 +88,8 @@ router.get('/', [jwtTokenDecoder], async (req, res) => {
 
 		const responses = await Response.find({ user: userId })
 			.populate('form', 'title')
-			.sort({ date: -1 });
+			.sort({ date: -1 })
+			.select('_id date');
 
 		if (!responses || responses.length === 0) {
 			return res.status(404).json({ msg: 'No responses found' });
@@ -103,7 +109,7 @@ router.get('/s/:responseId', [jwtTokenDecoder], async (req, res) => {
 	const userId = req.user.id;
 
 	try {
-		const userExists = await User.findOne({ _id: userId });
+		const userExists = await User.findOne({ _id: userId }).select('_id');
 
 		if (!userExists) {
 			return res
@@ -114,7 +120,9 @@ router.get('/s/:responseId', [jwtTokenDecoder], async (req, res) => {
 		const responseId = req.params.responseId;
 		const responseExists = await Response.findOne({
 			_id: responseId,
-		}).populate('form', 'title');
+		})
+			.populate('form', 'title')
+			.select('_id user response date');
 		if (!responseExists) {
 			return res
 				.status(400)
@@ -126,6 +134,8 @@ router.get('/s/:responseId', [jwtTokenDecoder], async (req, res) => {
 				.json({ msg: 'You do not have access to this response' });
 		}
 
+		responseExists.user = undefined;
+
 		res.status(200).json(responseExists);
 	} catch (error) {
 		console.error(error);
@@ -136,11 +146,11 @@ router.get('/s/:responseId', [jwtTokenDecoder], async (req, res) => {
 // route to handle fetch responses for form requests
 // GET /api/responses
 // access private
-router.get('/f/:formId', [jwtTokenDecoder], async (req, res) => {
+router.get('/r/:formId', jwtTokenDecoder, async (req, res) => {
 	const userId = req.user.id;
 
 	try {
-		const userExists = await User.findOne({ _id: userId });
+		const userExists = await User.findOne({ _id: userId }).select('_id');
 
 		if (!userExists) {
 			return res
@@ -149,7 +159,10 @@ router.get('/f/:formId', [jwtTokenDecoder], async (req, res) => {
 		}
 
 		const formId = req.params.formId;
-		const formExists = await Form.findOne({ _id: formId });
+		const formExists = await Form.findOne({ _id: formId }).select(
+			'_id user'
+		);
+
 		if (!formExists) {
 			return res
 				.status(400)
@@ -164,7 +177,8 @@ router.get('/f/:formId', [jwtTokenDecoder], async (req, res) => {
 
 		const responses = await Response.find({ form: formId })
 			.populate('user', 'email')
-			.sort({ date: -1 });
+			.sort({ date: -1 })
+			.select('_id response date');
 
 		if (!responses || responses.length === 0) {
 			return res

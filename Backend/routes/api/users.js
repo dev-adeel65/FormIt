@@ -29,7 +29,9 @@ router.post(
 		const { name, email, password } = req.body;
 
 		try {
-			const userExists = await User.findOne({ email: email });
+			const userExists = await User.findOne({ email: email }).select(
+				'_id'
+			);
 
 			if (userExists) {
 				return res
@@ -124,14 +126,14 @@ router.post(
 );
 
 // route to handle user change password requests
-// POST /api/users
+// PATCH /api/users
 // access private
-router.post(
+router.patch(
 	'/change-password',
 	[
 		jwtTokenDecoder,
 		[
-			check('password', 'Please include a Password').exists(),
+			check('password', 'Password is required').exists(),
 			check(
 				'newPassword',
 				'New Password must be at least 8 characters'
