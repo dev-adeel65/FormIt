@@ -1,0 +1,230 @@
+.create-form {
+	width: 100%;
+	min-height: 93vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.create-form .title-field {
+	width: 90%;
+	min-height: 5vh;
+	margin: 30px auto;
+	margin-bottom: 20px;
+	background-color: var(--color4);
+	color: var(--dark-text);
+	border: none;
+	outline: none;
+	font-size: 1.5rem;
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.create-form .form {
+	min-width: 600px;
+	max-width: 800px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.create-form .form .section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+	background-color: var(--color4);
+	box-shadow: 2px 2px 5px var(--color1);
+}
+
+.create-form .section .head input {
+	width: 100%;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color3);
+	font-size: 1.2rem;
+	padding: 7px;
+	color: whitesmoke;
+	text-align: center;
+	outline: none;
+}
+
+.create-form .section .field {
+	width: 100%;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid var(--color1);
+	margin: 10px 0;
+}
+
+.create-form .section .row1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.create-form .row1 > input {
+	font-size: 1rem;
+	color: var(--dark-text);
+	background: none;
+	outline: none;
+	border: none;
+}
+
+.create-form .row1 select {
+	background: none;
+	outline: none;
+	border: none;
+	/* width: 80%; */
+}
+
+.create-form .row1 div span {
+	font-size: 0.8rem;
+	color: var(--light-text);
+	background-color: var(--color1);
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.create-form .row2 input {
+	width: 100%;
+	margin-top: 10px;
+	padding: 6px 12px;
+	pointer-events: none;
+}
+
+.create-form .add-field-btn,
+.add-section-btn,
+.delete-section-btn {
+	width: 95%;
+	background-color: var(--color2);
+	border: none;
+	color: var(--light-text);
+	margin: 5px auto;
+	margin-top: 40px;
+	font-size: 1rem;
+	padding: 6px;
+	border: 3px;
+}
+
+.create-form .delete-section-btn {
+	margin-top: 10px;
+	background-color: var(--color3);
+	color: var(--dark-text);
+}
+
+.create-form .add-section-btn {
+	margin: 0;
+	width: 100%;
+}
+
+.create-form .create-form-btn {
+	min-width: 600px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background-color: var(--color1);
+	border: none;
+	color: var(--light-text);
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.create-form .update-form-btn {
+	min-width: 600px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background-color: var(--color2);
+	border: none;
+	color: var(--light-text);
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.create-form .delete-form-btn {
+	min-width: 600px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background-color: var(--color2);
+	border: none;
+	color: var(--light-text);
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.create-form .responses-form-btn {
+	min-width: 600px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background-color: var(--color2);
+	border: none;
+	color: var(--light-text);
+	padding: 10px;
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+.create-form .share-public {
+	/* width: 100%; */
+	min-width: 600px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background-color: var(--color3);
+	border: none;
+	color: var(--dark-text);
+	padding: 10px;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.create-form .share-public input {
+	width: 100%;
+	background-color: var(--color2);
+	border: none;
+	color: var(--light-text);
+	padding: 10px;
+	font-size: 1.2rem;
+	margin: 0 3px;
+}
+
+.submit-form .title-field {
+	pointer-events: none;
+}
+
+.submit-form .head input {
+	pointer-events: none;
+}
+
+.submit-form .row1 input {
+	pointer-events: none;
+}
+
+.submit-form .row2 input {
+	pointer-events: fill;
+	font-size: 1rem;
+}
+
+.submit-form .submit-form-btn {
+	min-width: 600px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 30px;
+	background-color: var(--color2);
+	border: none;
+	color: var(--light-text);
+	padding: 10px;
+	font-size: 1.2rem;
+}
+
+.submit-form .section .field {
+	margin-bottom: 0;
+}

@@ -178,7 +178,9 @@ router.get('/my-forms', [jwtTokenDecoder], async (req, res) => {
 				.json({ errors: [{ msg: 'User does not exist' }] });
 		}
 
-		const my_forms = await Form.find({ user: userId });
+		const my_forms = await Form.find({ user: userId })
+			.select('_id title date modified')
+			.sort({ date: -1 });
 
 		if (!my_forms || my_forms.length === 0) {
 			return res.status(404).json({ msg: 'No forms found' });
@@ -238,7 +240,7 @@ router.get('/f/:formId', [jwtTokenDecoder], async (req, res) => {
 
 		const formId = req.params.formId;
 		const formExists = await Form.findOne({ _id: formId }).select(
-			'_id user title layout'
+			'_id user title layout public'
 		);
 
 		if (!formExists) {

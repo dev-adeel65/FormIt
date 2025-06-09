@@ -160,7 +160,7 @@ router.get('/r/:formId', jwtTokenDecoder, async (req, res) => {
 
 		const formId = req.params.formId;
 		const formExists = await Form.findOne({ _id: formId }).select(
-			'_id user'
+			'_id user title'
 		);
 
 		if (!formExists) {
@@ -177,6 +177,7 @@ router.get('/r/:formId', jwtTokenDecoder, async (req, res) => {
 
 		const responses = await Response.find({ form: formId })
 			.populate('user', 'email')
+			.populate('form', 'title')
 			.sort({ date: -1 })
 			.select('_id response date');
 

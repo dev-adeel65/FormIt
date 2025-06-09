@@ -1,0 +1,136 @@
+.my-forms {
+	/* display: flex;
+	flex-direction: column; */
+	/* align-items: center; */
+	/* padding: 20px; */
+	width: 100%;
+	min-height: 93vh;
+}
+
+.my-forms .head {
+	width: 100%;
+	height: 5vh;
+	display: flex;
+	/* justify-content: center; */
+	/* align-items: center; */
+}
+
+.my-forms .head .item {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color2);
+	color: var(--light-text);
+}
+
+.my-forms .head .active {
+	background-color: var(--color5);
+	color: var(--dark-text);
+}
+
+.my-forms .body {
+	/* background-color: brown; */
+	max-width: 80vw;
+	margin: 0 auto;
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+}
+
+.my-forms .create-new-form {
+	width: 50%;
+	height: 4vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color3);
+	color: var(--light-text);
+	border-radius: 15px 0 15px 0;
+}
+
+.my-forms .form-list {
+	width: 100%;
+	/* background-color: var(--color4); */
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.my-forms .form-list .form-item {
+	background-color: var(--color4);
+	color: var(--dark-text);
+	width: 100%;
+	/* height: 5vh; */
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0;
+	padding: 10px 20px 5px 20px;
+	cursor: pointer;
+}
+
+.my-forms .form-list .form-item span {
+	align-self: end;
+	margin-top: 5px;
+}
+
+.no-forms {
+	margin-top: 20vh;
+	line-height: 30px;
+	text-align: center;
+	font-size: 1.2rem;
+	color: var(--dark-text);
+}
+
+.my-forms .submission-body {
+	width: 100%;
+	min-height: 93vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10vh;
+}
+
+.my-forms .submission-body .submission {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
+	background-color: var(--color4);
+	color: var(--dark-text);
+}
+
+.my-forms .submission-body .submission .head {
+	width: 100%;
+	height: 5vh;
+	line-height: 5vh;
+	padding-left: 10px;
+	background-color: var(--color3);
+	color: var(--light-text);
+}
+
+.my-forms .submission-body .submission .content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	overflow-y: auto;
+}
+
+.my-forms .submission-body .submission .content .row {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin: 5px 0;
+	padding: 10px 20px;
+	background-color: var(--color5);
+	color: var(--dark-text);
+}
+
+.my-forms .submission-body .submission .content .row * {
+	font-size: 1rem;
+}

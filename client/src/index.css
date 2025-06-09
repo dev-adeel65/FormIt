@@ -1,0 +1,64 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.font-ab-r {
+	font-family: 'Aboreto', system-ui;
+	font-weight: 400;
+	font-style: normal;
+}
+*,
+.font-ab-b {
+	font-family: 'Aboreto', system-ui;
+	font-weight: 800;
+	font-style: normal;
+}
+
+.font-rob-r {
+	font-family: 'Roboto', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+}
+
+.font-rob-b {
+	font-family: 'Roboto', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 800;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+input {
+	font-family: 'Roboto', sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-variation-settings: 'wdth' 100;
+}
+
+:root {
+	--color1: #01161e;
+	--color2: #124559;
+	--color3: #598392;
+	--color4: #aec3b0;
+	--color5: #eff6e0;
+	--dark-text: var(--color1);
+	--light-text: var(--color5);
+}
+
+body {
+	background-color: var(--color5);
+	color: var(--dark-text);
+}
