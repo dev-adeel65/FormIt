@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
-const dbURL = process.env.MONGO_DB_URL;
+const dbURL = "mongodb+srv://FormItDBUser:FormItDBUser@formitcluster.nanlrtj.mongodb.net/FormItDB?retryWrites=true&w=majority&appName=FormItCluster";
 
 const connectDB = async () => {
 	try {

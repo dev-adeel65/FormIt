@@ -103,7 +103,7 @@ router.post(
 
 			jwt.sign(
 				payload,
-				process.env.JWT_SECRET,
+				"haseeb",
 				{
 					expiresIn: '1h',
 				},

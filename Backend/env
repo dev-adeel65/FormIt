@@ -1,0 +1,3 @@
+MONGO_DB_URL=mongodb+srv://FormItDBUser:FormItDBUser@formitcluster.nanlrtj.mongodb.net/FormItDB?retryWrites=true&w=majority&appName=FormItCluster
+MONGO_DB_NAME=FormItDB
+JWT_SECRET=haseeb
